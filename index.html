@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="km">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +15,7 @@
             font-family: 'Khmer OS Siemreap', Arial, sans-serif;
             overflow-x: hidden;
             background: #f5f0eb;
+            -webkit-tap-highlight-color: transparent;
         }
 
         /* Welcome Screen */
@@ -33,6 +33,9 @@
             z-index: 1000;
             cursor: pointer;
             transition: opacity 1s ease;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
         }
 
         .welcome-screen.hidden {
@@ -69,41 +72,18 @@
         }
 
         @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-20px);
-            }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
 
         @keyframes pulse {
-
-            0%,
-            100% {
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 1;
-            }
-
-            50% {
-                transform: translate(-50%, -50%) scale(1.2);
-                opacity: 0.8;
-            }
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
         }
 
         @keyframes bounce {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         /* Main Content */
@@ -131,6 +111,7 @@
             padding: 20px;
             position: relative;
             overflow: hidden;
+            -webkit-touch-callout: none;
         }
 
         .title-khmer {
@@ -164,7 +145,6 @@
 
         .floating-hearts {
             position: absolute;
-            /* small centered GIF (adjust position if needed) */
             width: 48px;
             height: 48px;
             top: 18%;
@@ -181,7 +161,6 @@
             display: block;
         }
 
-        /* inline gif used inside headings */
         .inline-hearts {
             width: 28px;
             height: 28px;
@@ -190,7 +169,6 @@
             object-fit: contain;
         }
 
-        /* ensure any hearts image inside the couple heading is small */
         .couple-names img.hearts-gif {
             width: 40px;
             height: auto;
@@ -200,14 +178,9 @@
         }
 
         .decorative-frame {
-            /* fixed visual frame height so it doesn't appear too tall */
             width: min(90%, 680px);
             max-width: 680px;
             height: 86px;
-            /* control frame height */
-            /* margin: 15px auto; */
-            /* padding: 0 18px; */
-            /* inner spacing */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -303,86 +276,74 @@
 
         /* Calendar Button */
         .calendar-btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             margin-top: 30px;
-            padding: 15px 40px;
-            background: #d4a574;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, #d4a574 0%, #c09563 100%);
             color: white;
             text-decoration: none;
             border-radius: 30px;
             font-size: 1.1rem;
+            font-weight: bold;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(212, 165, 116, 0.3);
+            box-shadow: 0 5px 20px rgba(212, 165, 116, 0.3);
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+            width: 100%;
+            max-width: 300px;
+            -webkit-tap-highlight-color: rgba(212, 165, 116, 0.3);
+            touch-action: manipulation;
         }
 
-        .calendar-btn:hover {
-            background: #c09563;
-            transform: translateY(-2px);
-            box-shadow: 0 7px 20px rgba(212, 165, 116, 0.4);
+        .calendar-btn:hover, .calendar-btn:active {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 165, 116, 0.4);
+            background: linear-gradient(135deg, #c09563 0%, #a87d4c 100%);
+        }
+
+        .calendar-btn:active {
+            transform: translateY(-1px);
         }
 
         /* Animations */
         @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .title-khmer {
-                font-size: 1.8rem;
-            }
-
-            .couple-names {
-                font-size: 2rem;
-            }
-
-            .english-names {
-                font-size: 1.5rem;
-            }
-
-            .date-text {
+            .title-khmer { font-size: 1.8rem; }
+            .couple-names { font-size: 2rem; }
+            .english-names { font-size: 1.5rem; }
+            .date-text { font-size: 1.2rem; }
+            .rings-img { width: 150px; }
+            .floating-hearts { width: 120px; height: 120px; top: 5%; right: 5%; }
+            
+            .calendar-btn {
+                padding: 18px 30px;
                 font-size: 1.2rem;
             }
+        }
 
-            .rings-img {
-                width: 150px;
-            }
-
-            .floating-hearts {
-                width: 120px;
-                height: 120px;
-                top: 5%;
-                right: 5%;
+        @media (max-width: 480px) {
+            .calendar-btn {
+                padding: 16px 20px;
+                font-size: 1.1rem;
             }
         }
 
@@ -402,6 +363,8 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
             z-index: 999;
             transition: all 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
         }
 
         .music-control:hover {
@@ -417,9 +380,35 @@
         .music-control.paused::before {
             content: '🔇';
         }
+
+        /* Success Message */
+        .success-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            z-index: 1001;
+            display: none;
+            align-items: center;
+            gap: 10px;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
     </style>
 </head>
-
 <body>
     <!-- Welcome Screen -->
     <div class="welcome-screen" id="welcomeScreen">
@@ -470,11 +459,13 @@
         <div class="tap-text">👆 ចុច​ដើម្បី​បើក</div>
     </div>
 
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+        <span>✅</span> បានបញ្ចូលទៅក្នុងប្រតិទិន!
+    </div>
+
     <!-- Main Content -->
     <div class="main-content" id="mainContent">
-        <!-- Floating Hearts Background -->
-
-
         <!-- Hero Section -->
         <section class="hero">
             <h1 class="title-khmer">សិរីមង្គលពិធីអាពាហ៍ពិពាហ៍</h1>
@@ -482,7 +473,6 @@
             <h2 class="couple-names">
                 មុត រ៉ាឌី <br>
                 <img src="images/2hearts.gif" class="hearts-gif" alt="">
-
                 no name
             </h2>
 
@@ -490,6 +480,7 @@
 
             <div class="decorative-frame"></div>
         </section>
+        
         <!-- Date & Location -->
         <section class="date-location">
             <div class="date-box">
@@ -498,11 +489,11 @@
                     ម៉ោង ១៨:០០ ល្ងាច<br>
                 </p>
                 <p class="location-name">Siem Reap</p>
-             <a href="#" class="calendar-btn" id="calendarBtn">📅 Add to Calendar</a>
-
-
-
-
+                
+                <!-- Single Calendar Button -->
+                <button class="calendar-btn" id="calendarBtn">
+                    <span>📅</span> Add to calender
+                </button>
             </div>
         </section>
 
@@ -527,7 +518,7 @@
                 <circle cx="200" cy="280" r="20" fill="none" stroke="#d4a574" stroke-width="3" />
                 <circle cx="200" cy="265" r="8" fill="white" opacity="0.9" />
                 <circle cx="195" cy="270" r="4" fill="white" opacity="0.7" />
-                <circle cx="205" cy="270" r="4" fill="white" opacity="0.7" />
+                <circle cx="205" cy="270" r="4" fill="white" opacity=0.7" />
 
                 <!-- Flowers -->
                 <g transform="translate(80, 420)">
@@ -549,6 +540,7 @@
 
     <!-- Audio Element -->
     <audio id="backgroundMusic" loop>
+        <!-- You need to add your wedding.mp3 file in images folder -->
         <source src="images/wedding.mp3" type="audio/mpeg">
     </audio>
 
@@ -558,7 +550,13 @@
         const mainContent = document.getElementById('mainContent');
         const music = document.getElementById('backgroundMusic');
         const musicControl = document.getElementById('musicControl');
+        const successMessage = document.getElementById('successMessage');
         let musicPlaying = false;
+
+        // Device Detection
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        const isAndroid = /Android/.test(navigator.userAgent);
+        const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
         welcomeScreen.addEventListener('click', function () {
             welcomeScreen.classList.add('hidden');
@@ -588,53 +586,161 @@
             }
         });
 
-        // Calendar Button
-       // Calendar Button
-document.getElementById('calendarBtn').addEventListener('click', function(e) {
-    e.preventDefault();
+        // Show Success Message
+        function showSuccessMessage() {
+            successMessage.style.display = 'flex';
+            setTimeout(() => {
+                successMessage.style.animation = 'slideOut 0.3s ease forwards';
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                    successMessage.style.animation = '';
+                }, 300);
+            }, 3000);
+        }
 
-    // ICS content
-    const calendarData =
-`BEGIN:VCALENDAR
-VERSION:2.0
-BEGIN:VEVENT
-SUMMARY:ពិធីអាពាហ៍ពិពាហ៍
-DTSTART:20251117T110000Z
-DTEND:20251117T140000Z
-LOCATION:Siem Reap
-DESCRIPTION:សូមអញ្ជើញចូលរួមពិធីអាពាហ៍ពិពាហ៍
-END:VEVENT
-END:VCALENDAR`;
-
-    const blob = new Blob([calendarData], { type: 'text/calendar' });
-    const filename = 'wedding-event.ics';
-
-    // iOS detection
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-
-    if (isIOS) {
-        // iOS: open in new tab, Safari will handle "Add to Calendar"
-        const reader = new FileReader();
-        reader.onload = function() {
-            const newTab = window.open(reader.result, '_blank');
-            if (!newTab) alert('Please allow popups to add calendar event!');
+        // Universal Calendar Function - Works on iOS, Android, and Desktop
+        function addToCalendar() {
+            // Create event details
+           const eventDetails = {
+            title: 'ពិធីអាពាហ៍ពិពាហ៍ - Wedding Ceremony',
+            description: 'សូមអញ្ជើញចូលរួមពិធីអាពាហ៍ពិពាហ៍\nWedding Ceremony\nTime: 5:00 PM',
+            location: 'Siem Reap, Cambodia',
+            startTime: '2026-01-30T11:00:00Z', // 6:00 PM Cambodia time (UTC+7)
+            endTime: '2026-01-31T14:00:00Z',   // 9:00 PM Cambodia time
+            timeZone: 'Asia/Phnom_Penh'
         };
-        reader.readAsDataURL(blob);
-    } else {
-        // Android & desktop: download file
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = filename;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        URL.revokeObjectURL(url);
+
+            // Try multiple methods in order of preference
+            let eventAdded = false;
+
+            // Method 1: Try to open directly in Google Calendar (works on Android and iOS)
+               try {
+        const googleCalendarUrl = createGoogleCalendarLink();
+        window.open(googleCalendarUrl, '_blank');
+        eventAdded = true;
+    } catch (e) {
+        console.log('Google Calendar method failed:', e);
     }
 
-    alert('Calendar file ready to add!');
-});
 
+            // Method 2: Create and download ICS file (works on iOS and Desktop)
+            if (!eventAdded) {
+                try {
+                    downloadICSFile(eventDetails);
+                    eventAdded = true;
+                } catch (e) {
+                    console.log('ICS download method failed:', e);
+                }
+            }
+
+            // Method 3: Try Web Share API (for mobile devices that support it)
+            if (navigator.share && !eventAdded) {
+                try {
+                    navigator.share({
+                        title: eventDetails.title,
+                        text: eventDetails.description,
+                        url: generateGoogleCalendarUrl(eventDetails)
+                    });
+                    eventAdded = true;
+                } catch (e) {
+                    console.log('Web Share API failed:', e);
+                }
+            }
+
+            // Method 4: Fallback - show instructions
+            if (!eventAdded) {
+                showCalendarInstructions(eventDetails);
+            }
+
+            // Show success message
+            if (eventAdded) {
+                showSuccessMessage();
+            }
+        }
+
+        // Generate Google Calendar URL
+        function createGoogleCalendarLink() {
+        const eventTitle = encodeURIComponent('ពិធីអាពាហ៍ពិពាហ៍ - Wedding Ceremony');
+        const eventDate = '20260130'; // November 17, 2025
+        const startTime = '170000'; // 11:00 AM UTC (6:00 PM Cambodia Time UTC+7)
+        const endTime = '190000'; // 2:00 PM UTC (9:00 PM Cambodia Time UTC+7)
+        const location = encodeURIComponent('Siem Reap, Cambodia');
+        const details = encodeURIComponent('សូមអញ្ជើញចូលរួមពិធីអាពាហ៍ពិពាហ៍\nWedding Ceremony\nTime: 6:00 PM');
+        return `https://www.google.com/calendar/render?action=TEMPLATE&text=${eventTitle}&dates=${eventDate}T${startTime}/${eventDate}T${endTime}&location=${location}&details=${details}&sf=true&output=xml`;
+    }
+
+        // Format date for Google Calendar
+        function formatDateForGoogle(dateString) {
+            const date = new Date(dateString);
+            return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+        }
+
+        // Download ICS file
+        function downloadICSFile(details) {
+            const icsContent = generateICSContent(details);
+            
+            // Create blob
+            const blob = new Blob([icsContent], { 
+                type: 'text/calendar;charset=utf-8' 
+            });
+            
+            // Create URL
+            const url = URL.createObjectURL(blob);
+            
+            // Create download link
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'wedding-invitation.ics';
+            
+            // Append to body, click, and remove
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Clean up URL
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
+        }
+
+        // Generate ICS content
+        function generateICSContent(details) {
+            return `BEGIN:VCALENDAR VERSION:2.0 PRODID:-//Wedding//Invitation//EN CALSCALE:GREGORIAN BEGIN:VEVENT UID:wedding-2026130@example.com DTSTAMP:20260131T000000Z ORGANIZER;CN=Wedding Committee:MAILTO:wedding@example.com DTSTART:20260131T110000Z DTEND:20260131T140000Z SUMMARY:ពិធីអាពាហ៍ពិពាហ៍ DESCRIPTION:សូមអញ្ជើញចូលរួមពិធីអាពាហ៍ពិពាហ៍\\nWedding Ceremony\\nTime: 6:00 PM Cambodia Time LOCATION:Siem Reap\\, Cambodia STATUS:CONFIRMED SEQUENCE:0 BEGIN:VALARM ACTION:DISPLAY TRIGGER:-PT24H DESCRIPTION:ពិធីអាពាហ៍ពិពាហ៍នៅថ្ងៃស្អែក END:VALARM BEGIN:VALARM ACTION:DISPLAY TRIGGER:-PT1H DESCRIPTION:ពិធីអាពាហ៍ពិពាហ៍នៅក្នុងមួយម៉ោង END:VALARM END:VEVENT END:VCALENDAR`;
+        }
+
+        // Format date for ICS
+        function formatDateForICS(dateString) {
+            const date = new Date(dateString);
+            return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+        }
+
+        // Show calendar instructions (fallback)
+        function showCalendarInstructions(details) {
+            const message = `
+សូមបញ្ចូលព្រឹត្តិការណ៍នេះទៅក្នុងប្រតិទិនរបស់អ្នក៖
+
+កាលបរិច្ឆេទ៖ 30 មករា ២០២៦
+ពេលវេលា៖ ៥:០០ ល្ងាច
+ទីតាំង៖ Siem Reap
+
+សូមចម្លងព័ត៌មាននេះ និងបញ្ចូលដោយខ្លួនឯងទៅក្នុងកម្មវិធីប្រតិទិន។
+            `;
+            
+            alert(message);
+        }
+
+        // Calendar Button Event Listener
+        document.getElementById('calendarBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            addToCalendar();
+        });
+
+        // Touch improvements for mobile
+        document.getElementById('calendarBtn').addEventListener('touchstart', function() {
+            this.style.transform = 'translateY(-1px)';
+        });
+        
+        document.getElementById('calendarBtn').addEventListener('touchend', function() {
+            this.style.transform = '';
+        });
 
         // Scroll animations
         function revealOnScroll() {
@@ -651,8 +757,16 @@ END:VCALENDAR`;
             });
         }
 
+        // Initial reveal
+        window.addEventListener('load', revealOnScroll);
         window.addEventListener('scroll', revealOnScroll);
+
+        // Prevent long press on button
+        document.addEventListener('contextmenu', function(e) {
+            if (e.target.id === 'calendarBtn') {
+                e.preventDefault();
+            }
+        });
     </script>
 </body>
-
 </html>
