@@ -498,16 +498,8 @@
                     ម៉ោង ១៨:០០ ល្ងាច<br>
                 </p>
                 <p class="location-name">Siem Reap</p>
-              <a
-                    class="calendar-btn"
-                    target="_blank"
-                    href="https://www.google.com/calendar/render?action=TEMPLATE
-                    &text=ពិធីអាពាហ៍ពិពាហ៍
-                    &dates=20260130T110000Z/20260131T150000Z
-                    &location=Siem+Reap
-                    &details=សូមអញ្ជើញចូលរួមពិធីអាពាហ៍ពិពាហ៍">
-                    📅 Add to Google Calendar
-                    </a>
+             <a href="#" class="calendar-btn" id="calendarBtn">📅 Add to Calendar</a>
+
 
 
 
@@ -597,21 +589,52 @@
         });
 
         // Calendar Button
-        document.getElementById('calendarBtn').addEventListener('click', function (e) {
-            e.preventDefault();
+       // Calendar Button
+document.getElementById('calendarBtn').addEventListener('click', function(e) {
+    e.preventDefault();
 
-            const calendarData = `BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nSUMMARY:Wedding Invitation\nDTSTART:20251117T110000Z\nDTEND:20251117T140000Z\nLOCATION:Siem Reap\nDESCRIPTION:សូមអញ្ជើញចូលរួមពិធីអាពាហ៍ពិពាហ៍\nEND:VEVENT\nEND:VCALENDAR`;
+    // ICS content
+    const calendarData =
+`BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+SUMMARY:ពិធីអាពាហ៍ពិពាហ៍
+DTSTART:20251117T110000Z
+DTEND:20251117T140000Z
+LOCATION:Siem Reap
+DESCRIPTION:សូមអញ្ជើញចូលរួមពិធីអាពាហ៍ពិពាហ៍
+END:VEVENT
+END:VCALENDAR`;
 
-            const blob = new Blob([calendarData], { type: 'text/calendar' });
-            const url = URL.createObjectURL(blob);
+    const blob = new Blob([calendarData], { type: 'text/calendar' });
+    const filename = 'wedding-event.ics';
 
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = 'wedding-event.ics';
-            link.click();
+    // iOS detection
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
-            URL.revokeObjectURL(url);
-        });
+    if (isIOS) {
+        // iOS: open in new tab, Safari will handle "Add to Calendar"
+        const reader = new FileReader();
+        reader.onload = function() {
+            const newTab = window.open(reader.result, '_blank');
+            if (!newTab) alert('Please allow popups to add calendar event!');
+        };
+        reader.readAsDataURL(blob);
+    } else {
+        // Android & desktop: download file
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+    }
+
+    alert('Calendar file ready to add!');
+});
+
 
         // Scroll animations
         function revealOnScroll() {
