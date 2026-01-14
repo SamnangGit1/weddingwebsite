@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="km">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Moulpali&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -72,18 +76,41 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
         }
 
         @keyframes pulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 0.8;
+            }
         }
 
         @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
         /* Main Content */
@@ -101,8 +128,8 @@
         /* Hero Section */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(rgba(245, 240, 235, 0.6), rgba(232, 221, 208, 0.6)),
-                url('images/cover.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(143, 142, 141, 0.6), rgba(143, 142, 141, 0.6)),
+                url('images/a1.jpg') center/cover no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -116,14 +143,14 @@
 
         .title-khmer {
             font-size: 2.5rem;
-            color: #8b7355;
+            color: #ffffff;
             margin-bottom: 20px;
             animation: fadeInDown 1s ease 0.3s both;
         }
 
         .couple-names {
             font-size: 3rem;
-            color: #d4a574;
+            color: #ffffff;
             margin: 20px 0;
             line-height: 1.4;
             animation: fadeInDown 1s ease 0.5s both;
@@ -138,7 +165,7 @@
 
         .english-names {
             font-size: 2rem;
-            color: #8b7355;
+            color: #ffffff;
             margin: 20px 0;
             animation: fadeInUp 1s ease 0.8s both;
         }
@@ -243,7 +270,7 @@
 
         .date-text {
             font-size: 1.5rem;
-            color: #8b7355;
+            color: #ffffff;
             margin: 15px 0;
             line-height: 1.8;
         }
@@ -274,6 +301,75 @@
             transition: all 0.8s ease;
         }
 
+        /* CENTERED DECORATIVE BORDER SECTION */
+        .centered-border-section {
+            padding: 80px 20px;
+            background: white;
+            text-align: center;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px;
+        }
+
+        .border-container {
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .border-top-img {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            max-width: 800px;
+            height: auto;
+            z-index: 2;
+        }
+
+        .border-content {
+            position: relative;
+
+
+            border-radius: 10px;
+
+            z-index: 1;
+            box-shadow: none;
+        }
+
+        .border-text {
+            font-size: 1.3rem;
+            color: #8b7355;
+            line-height: 2;
+            text-align: center;
+            margin: 0;
+        }
+
+        .border-bottom-img {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            max-width: 800px;
+            height: auto;
+            z-index: 2;
+        }
+
+        .border-text-font-f {
+            font-family: 'Moulpali', sans-serif;
+            ;
+        }
+
+        .border-text-font-f1 {
+            font-family: 'Kantumruy Pro', sans-serif;
+            ;
+        }
+
         /* Calendar Button */
         .calendar-btn {
             display: inline-flex;
@@ -299,7 +395,8 @@
             touch-action: manipulation;
         }
 
-        .calendar-btn:hover, .calendar-btn:active {
+        .calendar-btn:hover,
+        .calendar-btn:active {
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(212, 165, 116, 0.4);
             background: linear-gradient(135deg, #c09563 0%, #a87d4c 100%);
@@ -311,29 +408,76 @@
 
         /* Animations */
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .title-khmer { font-size: 1.8rem; }
-            .couple-names { font-size: 2rem; }
-            .english-names { font-size: 1.5rem; }
-            .date-text { font-size: 1.2rem; }
-            .rings-img { width: 150px; }
-            .floating-hearts { width: 120px; height: 120px; top: 5%; right: 5%; }
-            
+            .title-khmer {
+                font-size: 1.8rem;
+            }
+
+            .couple-names {
+                font-size: 2rem;
+            }
+
+            .english-names {
+                font-size: 1.5rem;
+            }
+
+            .date-text {
+                font-size: 1.2rem;
+            }
+
+            .rings-img {
+                width: 150px;
+            }
+
+            .floating-hearts {
+                width: 120px;
+                height: 120px;
+                top: 5%;
+                right: 5%;
+            }
+
+            .border-text {
+                font-size: 1.1rem;
+            }
+
+            .border-content {
+                padding: 70px 20px;
+            }
+
             .calendar-btn {
                 padding: 18px 30px;
                 font-size: 1.2rem;
@@ -344,6 +488,14 @@
             .calendar-btn {
                 padding: 16px 20px;
                 font-size: 1.1rem;
+            }
+
+            .border-content {
+                padding: 60px 15px;
+            }
+
+            .centered-border-section {
+                padding: 60px 15px;
             }
         }
 
@@ -399,16 +551,31 @@
         }
 
         @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
         @keyframes slideOut {
-            from { transform: translateX(0); opacity: 1; }
-            to { transform: translateX(100%); opacity: 0; }
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
         }
     </style>
 </head>
+
 <body>
     <!-- Welcome Screen -->
     <div class="welcome-screen" id="welcomeScreen">
@@ -479,21 +646,36 @@
             <h3 class="english-names"> សូមគោរពអញ្ជើញ </h3>
 
             <div class="decorative-frame"></div>
-        </section>
-        
-        <!-- Date & Location -->
-        <section class="date-location">
-            <div class="date-box">
-                <p class="date-text">
-                    ថ្ងៃអាទិត្យ ទី១៧ ខែវិច្ឆិកា ឆ្នាំ២០២៥<br>
-                    ម៉ោង ១៨:០០ ល្ងាច<br>
-                </p>
-                <p class="location-name">Siem Reap</p>
-                
-                <!-- Single Calendar Button -->
+            <p class="date-text">
+                ថ្ងៃសុក្រ ទី30 ខែមករា ឆ្នាំ២០២៦<br>
+                ឃុំរលួស ស្រុកប្រាសាទបាគង<br>
                 <button class="calendar-btn" id="calendarBtn">
                     <span>📅</span> Add to calender
                 </button>
+            </p>
+        </section>
+
+        <!-- Centered Decorative Border Section -->
+        <section class="centered-border-section">
+            <div class="border-container">
+                <img src="images/decor-header.png" alt="Decorative Header" class="border-top-img">
+
+                <div class="border-content">
+                    <p class="border-text">
+                    <p class="border-text-font-f">យើងខ្ញុំមានកិត្តិយសសូមគោរពអញ្ជើញ</p>
+
+                    <p​ class="border-text-font-f1">ឯកឧត្តម លោកឧត្តញ់ លោកជំទាំង លោកលោកស្រី
+                        អ្នកនាងកញ្ញា អេញ្ជីញចូលរួមជា
+                        អធិបត្តិ និងជាស្រុកកិត្តិយស <br>
+                        ដើម្បីប្រសិទ្ធិពរជ័យ សីវិស្តសតី ជ័យមង្គល ក្នុង<br>
+                        ពិធីសិរីមង្គលពិធីអាពាហ៍ពិពាហ៍ របស់យើងខ្ញុំទាំងពីរ។
+                        </p>
+
+
+                        </p>
+                </div>
+
+                <img src="images/decor-footer.png" alt="Decorative Footer" class="border-bottom-img">
             </div>
         </section>
 
@@ -518,7 +700,7 @@
                 <circle cx="200" cy="280" r="20" fill="none" stroke="#d4a574" stroke-width="3" />
                 <circle cx="200" cy="265" r="8" fill="white" opacity="0.9" />
                 <circle cx="195" cy="270" r="4" fill="white" opacity="0.7" />
-                <circle cx="205" cy="270" r="4" fill="white" opacity=0.7" />
+                <circle cx="205" cy="270" r="4" fill="white" opacity="0.7" />
 
                 <!-- Flowers -->
                 <g transform="translate(80, 420)">
@@ -601,26 +783,26 @@
         // Universal Calendar Function - Works on iOS, Android, and Desktop
         function addToCalendar() {
             // Create event details
-           const eventDetails = {
-            title: 'ពិធីអាពាហ៍ពិពាហ៍ - Wedding Ceremony',
-            description: 'សូមអញ្ជើញចូលរួមពិធីអាពាហ៍ពិពាហ៍\nWedding Ceremony\nTime: 5:00 PM',
-            location: 'Siem Reap, Cambodia',
-            startTime: '2026-01-30T11:00:00Z', // 6:00 PM Cambodia time (UTC+7)
-            endTime: '2026-01-31T14:00:00Z',   // 9:00 PM Cambodia time
-            timeZone: 'Asia/Phnom_Penh'
-        };
+            const eventDetails = {
+                title: 'ពិធីអាពាហ៍ពិពាហ៍ - Wedding Ceremony',
+                description: 'សូមអញ្ជើញចូលរួមពិធីអាពាហ៍ពិពាហ៍\nWedding Ceremony\nTime: 5:00 PM',
+                location: 'Siem Reap, Cambodia',
+                startTime: '2026-01-30T11:00:00Z', // 6:00 PM Cambodia time (UTC+7)
+                endTime: '2026-01-31T14:00:00Z',   // 9:00 PM Cambodia time
+                timeZone: 'Asia/Phnom_Penh'
+            };
 
             // Try multiple methods in order of preference
             let eventAdded = false;
 
             // Method 1: Try to open directly in Google Calendar (works on Android and iOS)
-               try {
-        const googleCalendarUrl = createGoogleCalendarLink();
-        window.open(googleCalendarUrl, '_blank');
-        eventAdded = true;
-    } catch (e) {
-        console.log('Google Calendar method failed:', e);
-    }
+            try {
+                const googleCalendarUrl = createGoogleCalendarLink();
+                window.open(googleCalendarUrl, '_blank');
+                eventAdded = true;
+            } catch (e) {
+                console.log('Google Calendar method failed:', e);
+            }
 
 
             // Method 2: Create and download ICS file (works on iOS and Desktop)
@@ -660,14 +842,14 @@
 
         // Generate Google Calendar URL
         function createGoogleCalendarLink() {
-        const eventTitle = encodeURIComponent('ពិធីអាពាហ៍ពិពាហ៍ - Wedding Ceremony');
-        const eventDate = '20260130'; // November 17, 2025
-        const startTime = '170000'; // 11:00 AM UTC (6:00 PM Cambodia Time UTC+7)
-        const endTime = '190000'; // 2:00 PM UTC (9:00 PM Cambodia Time UTC+7)
-        const location = encodeURIComponent('Siem Reap, Cambodia');
-        const details = encodeURIComponent('សូមអញ្ជើញចូលរួមពិធីអាពាហ៍ពិពាហ៍\nWedding Ceremony\nTime: 6:00 PM');
-        return `https://www.google.com/calendar/render?action=TEMPLATE&text=${eventTitle}&dates=${eventDate}T${startTime}/${eventDate}T${endTime}&location=${location}&details=${details}&sf=true&output=xml`;
-    }
+            const eventTitle = encodeURIComponent('ពិធីអាពាហ៍ពិពាហ៍ - Wedding Ceremony');
+            const eventDate = '20260130'; // November 17, 2025
+            const startTime = '170000'; // 11:00 AM UTC (6:00 PM Cambodia Time UTC+7)
+            const endTime = '190000'; // 2:00 PM UTC (9:00 PM Cambodia Time UTC+7)
+            const location = encodeURIComponent('Siem Reap, Cambodia');
+            const details = encodeURIComponent('សូមអញ្ជើញចូលរួមពិធីអាពាហ៍ពិពាហ៍\nWedding Ceremony\nTime: 6:00 PM');
+            return `https://www.google.com/calendar/render?action=TEMPLATE&text=${eventTitle}&dates=${eventDate}T${startTime}/${eventDate}T${endTime}&location=${location}&details=${details}&sf=true&output=xml`;
+        }
 
         // Format date for Google Calendar
         function formatDateForGoogle(dateString) {
@@ -678,25 +860,25 @@
         // Download ICS file
         function downloadICSFile(details) {
             const icsContent = generateICSContent(details);
-            
+
             // Create blob
-            const blob = new Blob([icsContent], { 
-                type: 'text/calendar;charset=utf-8' 
+            const blob = new Blob([icsContent], {
+                type: 'text/calendar;charset=utf-8'
             });
-            
+
             // Create URL
             const url = URL.createObjectURL(blob);
-            
+
             // Create download link
             const link = document.createElement('a');
             link.href = url;
             link.download = 'wedding-invitation.ics';
-            
+
             // Append to body, click, and remove
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-            
+
             // Clean up URL
             setTimeout(() => URL.revokeObjectURL(url), 1000);
         }
@@ -723,22 +905,22 @@
 
 សូមចម្លងព័ត៌មាននេះ និងបញ្ចូលដោយខ្លួនឯងទៅក្នុងកម្មវិធីប្រតិទិន។
             `;
-            
+
             alert(message);
         }
 
         // Calendar Button Event Listener
-        document.getElementById('calendarBtn').addEventListener('click', function(e) {
+        document.getElementById('calendarBtn').addEventListener('click', function (e) {
             e.preventDefault();
             addToCalendar();
         });
 
         // Touch improvements for mobile
-        document.getElementById('calendarBtn').addEventListener('touchstart', function() {
+        document.getElementById('calendarBtn').addEventListener('touchstart', function () {
             this.style.transform = 'translateY(-1px)';
         });
-        
-        document.getElementById('calendarBtn').addEventListener('touchend', function() {
+
+        document.getElementById('calendarBtn').addEventListener('touchend', function () {
             this.style.transform = '';
         });
 
@@ -762,11 +944,12 @@
         window.addEventListener('scroll', revealOnScroll);
 
         // Prevent long press on button
-        document.addEventListener('contextmenu', function(e) {
+        document.addEventListener('contextmenu', function (e) {
             if (e.target.id === 'calendarBtn') {
                 e.preventDefault();
             }
         });
     </script>
 </body>
+
 </html>
